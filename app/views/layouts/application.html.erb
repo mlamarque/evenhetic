@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <% if current_user %>
+    <%= current_user.inspect %>
+    <%= link_to "Logout", logout_path, :method => :delete %>
+    
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>
